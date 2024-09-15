@@ -2,13 +2,40 @@ import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 function Login() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    console.log(data);
+    const userInfo = {
+      email: data.email,
+      password: data.password,
+    };
+    console.log(userInfo);
+    await axios
+      .post("http://localhost:4001/user/login", userInfo)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data) {
+          toast.success("Logged in  successfully");
+          document.getElementById("my_modal_3").close();
+          setTimeout(function() {
+            window.location.reload();
+        }, 400);
+        }
+        localStorage.setItem("Users", JSON.stringify(res.data.user));
+      })
+      .catch((err) => {
+        if (err.response) {
+          toast.error("Error : " + " " + err.response.data.message);
+        }
+      });
+  };
   const [passwordVisible, setPasswordVisible] = useState(false);
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -52,7 +79,7 @@ function Login() {
                   <input
                     type={passwordVisible ? "text" : "password"}
                     placeholder="Enter your Password"
-                    className="w-[279px] px-3  space-y-1 rounded-md outline-none "
+                    className="w-[279px] px-3  space-y-1 rounded-md outline-none " fdprocessid ="ace5y"
                     {...register("password", { required: true })}
                   />
 
