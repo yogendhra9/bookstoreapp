@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 
 function Logout() {
   const [authUser, setAuthUser] = useAuth();
-  console.log(authUser);
+  // console.log(authUser);
   const handleLogout = () => {
     try {
       setAuthUser({

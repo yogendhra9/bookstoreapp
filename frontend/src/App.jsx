@@ -8,7 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "./context/AuthProvider";
 function App() {
   const [authUser, setAuthUser] = useAuth();
-  console.log(authUser);
+
 
   return (
     <>
@@ -17,11 +17,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/course"
-            element={
-              authUser ? (
+            element={   
+              authUser  ? (
                 <div>
                   {console.log(authUser)}
-                  <h1>Courses page</h1>
                   <Courses />
                 </div>
               ) : (
