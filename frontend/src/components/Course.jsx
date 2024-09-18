@@ -3,18 +3,19 @@ import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
 function Course() {
   const [book, setBook] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const getBook = async () => {
       try {
-        const res = await axios.get("api/books");
+        const res = await axios.get("http://localhost:4001/book");
         console.log(res.data);
         setLoading(false);
         setBook(res.data);
       } catch (error) {
-        console.log(error);
+        toast.error(error.data.message);
       }
     };
     getBook();

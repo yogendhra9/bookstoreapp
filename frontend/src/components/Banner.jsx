@@ -11,10 +11,7 @@ function Banner() {
               <span className="text-pink-500">new everyday</span>
             </h1>
             <p className="text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-              quisquam quod ratione ea, illo officia deleniti quae nisi laborum
-              sint sit eligendi doloremque, assumenda voluptatibus facere
-              suscipit, hic voluptates aut.
+            At BookStore, we believe that learning should be accessible to everyone. Our platform offers a diverse selection of free and premium books across various subjects and genres.
             </p>
             <label className="input input-bordered flex items-center gap-2">
               <svg

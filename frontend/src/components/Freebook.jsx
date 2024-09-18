@@ -59,9 +59,7 @@ function Freebook() {
         <div>
           <h1 className=" text-xl font-semibold pt-2">Free Books</h1>
           <p className="pt-2">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis non
-            incidunt alias, et tenetur maxime atque voluptatibus totam debitis!
-            Amet, magni molestiae nobis cumque.
+          Explore our handpicked collection of books available at no cost. Start reading today and broaden your horizons without spending a penny
           </p>
         </div>
         <div>

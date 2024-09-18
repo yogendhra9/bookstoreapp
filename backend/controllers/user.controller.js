@@ -17,12 +17,14 @@ export const signup = async (req, res) => {
       password: hashPassword,
     });
     await createdUser.save();
-    res
-      .status(201)
-      .json({
-        message: "New user created successfully",
-        user: { createdUser },
-      });
+    res.status(201).json({
+      message: "New user created successfully",
+      user: {
+        _id: createdUser._id,
+        fullName: createdUser.fullName,
+        email: createdUser.email,
+      },
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
